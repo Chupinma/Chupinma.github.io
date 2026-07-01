@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lou &amp; moi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="site" id="root">
+
+  <div class="loader" id="loader">
+    <svg class="loader-heart" viewBox="0 0 100 100" width="176" height="176">
+      <defs>
+        <clipPath id="hc"><path d="M50,84 C50,84 12,58 12,34 C12,20 24,13 34,13 C42,13 47,19 50,25 C53,19 58,13 66,13 C76,13 88,20 88,34 C88,58 50,84 50,84 Z"/></clipPath>
+        <linearGradient id="hg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#E4685A"/><stop offset="1" stop-color="#F5A57F"/></linearGradient>
+      </defs>
+      <path d="M50,84 C50,84 12,58 12,34 C12,20 24,13 34,13 C42,13 47,19 50,25 C53,19 58,13 66,13 C76,13 88,20 88,34 C88,58 50,84 50,84 Z" fill="#FBEAD6"/>
+      <rect id="loaderFill" x="0" y="100" width="100" height="0" fill="url(#hg)" clip-path="url(#hc)"/>
+      <path d="M50,84 C50,84 12,58 12,34 C12,20 24,13 34,13 C42,13 47,19 50,25 C53,19 58,13 66,13 C76,13 88,20 88,34 C88,58 50,84 50,84 Z" fill="none" stroke="#C96A45" stroke-width="3.4" stroke-linejoin="round"/>
+    </svg>
+    <div class="loader-text">je prépare tous mes bisous…</div>
+    <div class="loader-pct" id="loaderPct">0%</div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-brand">
+      <span class="word">Lou</span>
+      <span class="heart beating">❤</span>
+      <span class="word">moi</span>
+    </a>
+    <div class="nav-right">
+      <a class="navlink" href="#histoire">Notre histoire</a>
+      <a class="navlink" href="#voyages">Voyages</a>
+      <a class="navlink" href="#bebou">Bebou</a>
+      <a class="navlink" href="#carte">La carte</a>
+      <a class="navlink" href="#lettre">La lettre</a>
+      <button class="music-btn" id="musicBtn" data-on="0" type="button">
+        <span class="note">♪</span><span data-lbl>Musique</span>
+      </button>
+    </div>
+  </nav>
+
+  <header id="hero" class="hero">
+    <div class="hero-glow-outer"></div>
+    <div class="hero-glow-inner"></div>
+
+    <div class="pheart" data-depth="1.2" style="top:22%;left:12%"><span style="font-size:34px;animation-duration:5s">💛</span></div>
+    <div class="pheart" data-depth="2" style="top:34%;right:14%"><span style="font-size:44px;animation-duration:6.5s">❤️</span></div>
+    <div class="pheart" data-depth="1.6" style="top:62%;left:18%"><span style="font-size:28px;animation-duration:5.8s;animation-delay:.5s">🧡</span></div>
+    <div class="pheart" data-depth="2.6" style="top:70%;right:20%"><span style="font-size:38px;animation-duration:7s;animation-delay:.3s">🤍</span></div>
+    <div class="pheart" data-depth="1" style="top:48%;left:6%"><span style="font-size:22px;animation-duration:6s;animation-delay:.8s">💕</span></div>
+    <div class="pheart" data-depth="1.8" style="top:26%;right:8%"><span style="font-size:24px;animation-duration:5.4s;animation-delay:.2s">💖</span></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">depuis le 10 octobre 2022 🧗</div>
+      <h1 class="hero-title">Je t'aime,<br>Lou <span class="heart beating">❤</span></h1>
+      <p class="hero-sub">à ma surfeuse, ma grimpeuse, mon coucher de soleil préféré</p>
+
+      <div class="counter-row">
+        <div class="counter-cell"><div class="counter-num" id="daysNum">—</div><div class="counter-label">Jours</div></div>
+        <div class="counter-cell"><div class="counter-num" id="hoursNum">—</div><div class="counter-label">Heures</div></div>
+        <div class="counter-cell"><div class="counter-num" id="minsNum">—</div><div class="counter-label">Minutes</div></div>
+        <div class="counter-cell"><div class="counter-num" id="secsNum">—</div><div class="counter-label">Secondes</div></div>
+      </div>
+      <div class="counter-note" id="yearsNote">à s'aimer sans compter</div>
+    </div>
+
+    <a href="#histoire" class="scroll-cue">DÉFILE<span>↓</span></a>
+  </header>
+
+  <section id="histoire">
+    <div class="reveal section-intro">
+      <div class="section-kicker">comment tout a commencé</div>
+      <h2 class="section-title">Notre histoire</h2>
+    </div>
+
+    <div class="reveal timeline-item">
+      <div class="timeline-dotcol">
+        <div class="timeline-dot"></div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-card">
+        <img class="timeline-img" src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3993a00005c62ff2f4cd_IMG_1032.JPG" alt="Totem" loading="lazy">
+        <div class="timeline-body">
+          <span class="timeline-date">10 octobre 2022</span>
+          <h3 class="timeline-heading">Totem</h3>
+          <div class="timeline-place">Lausanne</div>
+          <p class="timeline-text">Une simple salle d'escalade où nous allions pour passer le temps pendant ce fameux été. Ce devait être mes derniers instants à Lausanne… mais te rencontrer en a décidé autrement. Je suis tellement heureux d'avoir osé demander ton Instagram.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal timeline-item">
+      <div class="timeline-dotcol">
+        <div class="timeline-dot"></div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-card">
+        <img class="timeline-img" src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682e6eccd721433ee749732_IMG_2014.JPG" alt="Le Cap Ferret" loading="lazy">
+        <div class="timeline-body">
+          <span class="timeline-date">L'été d'après</span>
+          <h3 class="timeline-heading">Le Cap Ferret</h3>
+          <div class="timeline-place">Cap Ferret</div>
+          <p class="timeline-text">Des vacances magiques, où j'ai découvert le surf et ma copine dans son élément naturel. Et ouais ! Ma copine est une superbe surfeuse trop canon, la classe totale.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal timeline-item">
+      <div class="timeline-dotcol">
+        <div class="timeline-dot"></div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-card">
+        <img class="timeline-img" src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682eb8537c0a3b84bce08b4_IMG_1847.JPG" alt="Les Termes" loading="lazy">
+        <div class="timeline-body">
+          <span class="timeline-date">Notre rituel</span>
+          <h3 class="timeline-heading">Les Termes</h3>
+          <div class="timeline-place">Les Termes</div>
+          <p class="timeline-text">Cet endroit magique et relaxant, inévitable avec toi. Tu m'as fait découvrir ce coin dont je ne peux plus me passer : « les termes » riment désormais avec ta présence, car je m'ennuie quand tu n'y es pas avec moi. On y a passé des moments superbes… et parfois très excitants ;)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="voyages">
+    <div class="reveal section-intro">
+      <div class="section-kicker">nos petites aventures</div>
+      <h2 class="section-title">Voyages</h2>
+      <p class="section-desc">Un album un peu bordélique, comme nous. Passe la souris sur une photo. 📸</p>
+    </div>
+    <div class="voyages-grid">
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682eb898933417fa6152514_IMG_1717.JPG" alt="Moi cheesy !? noooon !" loading="lazy"><figcaption>Moi cheesy !? noooon !</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682e6eccd721433ee749732_IMG_2014.JPG" alt="Le magasin préféré d'une surfeuse" loading="lazy"><figcaption>Le magasin préféré d'une surfeuse</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682eb8537c0a3b84bce08b4_IMG_1847.JPG" alt="Hi hi, j'adore les couchers de soleil" loading="lazy"><figcaption>Hi hi, j'adore les couchers de soleil</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682e6ef1f3b6acc914bbbdd_IMG_1959.JPG" alt="Le sunset en amoureux" loading="lazy"><figcaption>Le sunset en amoureux</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682eb90aa355ed6e2da87dd_IMG_1809.JPG" alt="Pleins de bisous !" loading="lazy"><figcaption>Pleins de bisous !</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682e6ec646dca88734bacbc_IMG_1805.JPG" alt="On coupe au montage ça XD" loading="lazy"><figcaption>On coupe au montage ça XD</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbab5d4180c3387affd01a_IMG_0548.JPG" alt="Eh ! Rends mon tel" loading="lazy"><figcaption>Eh ! Rends mon tel</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd42ca8bf1baf378ee78f8_IMG_0608.JPG" alt="Plaît-il ?" loading="lazy"><figcaption>Plaît-il ?</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbac7a41e29e1832c4b756_IMG_0683.JPG" alt="Oh ! Mais qui voilà-je ?" loading="lazy"><figcaption>Oh ! Mais qui voilà-je ?</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbac722c20b1dfcacd9d66_IMG_0662.JPG" alt="Un mignooon !" loading="lazy"><figcaption>Un mignooon !</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbabb6140caaded1d8ce3e_IMG_0568.JPG" alt="Un glouton barjo" loading="lazy"><figcaption>Un glouton barjo</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbaca764e0bf30624c1620_IMG_0711.JPG" alt="Mon amoureuse" loading="lazy"><figcaption>Mon amoureuse</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbacee46c273c958c55270_IMG_0757.JPG" alt="Les stars sur le pont" loading="lazy"><figcaption>Les stars sur le pont</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbac01ed61f5695828d9a8_IMG_0636.JPG" alt="On est trop beau !!" loading="lazy"><figcaption>On est trop beau !!</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbac617244c4bc0422961e_IMG_0647.JPG" alt="Comme les chinois" loading="lazy"><figcaption>Comme les chinois</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbad01ee3c481700396755_IMG_E0709.JPG" alt="Oh stylé, une église" loading="lazy"><figcaption>Oh stylé, une église</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbac864d0da94b9223657b_IMG_0687.JPG" alt="Sympa, encore une église" loading="lazy"><figcaption>Sympa, encore une église</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbabd66e99682981837b4a_IMG_0582.JPG" alt="Encore... ça fait beaucoup là non ?" loading="lazy"><figcaption>Encore... ça fait beaucoup là non ?</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbacfcb3b3641faddeef76_IMG_0784.JPG" alt="GRRRR ! Travaux de m***e !" loading="lazy"><figcaption>GRRRR ! Travaux de m***e !</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbacc38d4bdd6d776a3281_IMG_0743.JPG" alt="C'est jolie !" loading="lazy"><figcaption>C'est jolie !</figcaption></figure>
+      <figure class="pola"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cbac900d645898a2a7e5da_IMG_0691.JPG" alt="Ils sont fous ces touristes !" loading="lazy"><figcaption>Ils sont fous ces touristes !</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="bebou">
+    <div class="reveal section-intro">
+      <div class="section-kicker">la vedette de ce site</div>
+      <h2 class="section-title">Bebou <span class="heart" style="color:#E4685A">❤</span></h2>
+      <p class="section-desc">La plus jolie collection du monde entier (oui, j'assume).</p>
+    </div>
+    <div class="bebou-grid">
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682eb8e5d941e31f8e42999_IMG_1654.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682ef1bf4cc518edcfee623_IMG_1913488.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682e6efb785742bbdd61d6b_IMG_2080.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3993a00005c62ff2f4cd_IMG_1032.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd39932925f300df00fc16_IMG_1033.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3993a38ad5230b3942d7_IMG_1038.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3993eac4b5f6ec8347ac_IMG_1035.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3992a00005c62ff2f495_IMG_1034.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3992566e705393b7d59b_IMG_1037.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd399273d1ae5e5e484a2d_IMG_1040.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3992b3cd19b4d3dfddaa_IMG_1042.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd399202e9dfe555f970cc_IMG_1041.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3b9bd5cc079277e01563_Snapchat-1579620900.jpg" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd399348a7b759a9b363db_IMG_1039.JPG" alt="Bebou" loading="lazy"></div>
+      <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3b9cba841b6d09b7f0f1_Sans%20titre%2017_20230330171835.png" alt="Bebou" loading="lazy"></div>
+    </div>
+
+    <div class="reveal bebou-slots">
+      <div class="bebou-slots-intro">…et de la place pour nos prochains souvenirs 👇</div>
+      <div class="bebou-slots-grid">
+        <div class="bebou-slot">Glisse une photo 💛</div>
+        <div class="bebou-slot">Glisse une photo 🧡</div>
+        <div class="bebou-slot">Glisse une photo ❤️</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="carte">
+    <div class="reveal section-intro">
+      <div class="section-kicker">nos petits coins du monde</div>
+      <h2 class="section-title">La carte de nous</h2>
+    </div>
+    <div class="reveal map-card">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path class="route" d="M14,24 C6,44 8,58 22,66 C42,78 58,58 76,42" fill="none" stroke="#C96A45" stroke-width="2.4" stroke-dasharray="1.4 2" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".7"/>
+      </svg>
+      <div class="pin" style="left:14%;top:24%">
+        <div class="pin-ring"></div>
+        <div class="pin-dot">🧗</div>
+        <div class="pin-card"><div class="pin-title">Lausanne · Totem</div><div class="pin-sub">là où j'ai osé demander ton Insta</div></div>
+      </div>
+      <div class="pin" style="left:22%;top:66%">
+        <div class="pin-ring" style="animation-delay:.8s"></div>
+        <div class="pin-dot">🏄</div>
+        <div class="pin-card"><div class="pin-title">Cap Ferret</div><div class="pin-sub">le surf, l'océan, toi radieuse</div></div>
+      </div>
+      <div class="pin" style="left:76%;top:42%">
+        <div class="pin-ring" style="animation-delay:1.6s"></div>
+        <div class="pin-dot">♨️</div>
+        <div class="pin-card"><div class="pin-title">Les Termes</div><div class="pin-sub">notre bulle de détente</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lettre">
+    <div class="reveal section-intro">
+      <div class="section-kicker">un petit secret pour toi</div>
+      <h2 class="section-title">La lettre cachée</h2>
+      <p class="section-desc">Clique sur l'enveloppe. 💌</p>
+    </div>
+
+    <div class="letter-wrap">
+      <button class="env" id="envelope" type="button">
+        <div class="env-body"></div>
+        <div class="env-shadow"></div>
+        <div class="env-flap"></div>
+        <div class="env-seal">❤</div>
+        <div class="env-caption">pour Lou, ouvre-moi 💗</div>
+      </button>
+
+      <div class="letter" id="letter">
+        <div class="letter-salutation">Ma Lou,</div>
+        <p class="letter-text">Si tu lis ces mots, c'est que tu as trouvé le petit secret que je t'avais glissé ici. Depuis ce jour d'octobre à Totem, où j'ai enfin eu le courage de te demander ton Instagram, ma vie a pris des couleurs de coucher de soleil.</p>
+        <p class="letter-text">Tu es ma surfeuse, ma grimpeuse, ma partenaire de bains chauds aux Termes et de trop longues soirées à rire pour rien. Merci d'exister, merci de me choisir chaque jour.</p>
+        <p class="letter-text">Je t'aime plus qu'hier, et bien moins que demain.</p>
+        <div class="letter-sign">pour toujours, ton Bebou 🤍</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-emojis">❤️ 🧡 💛 🤍</div>
+    <div class="footer-tagline">Un petit rien, fait avec beaucoup d'amour</div>
+    <div class="footer-meta">Lou &amp; moi · 10.10.2022 → pour toujours</div>
+  </footer>
+</div>
+
+<audio id="bgm" src="assets/audio/ambient.mp3" loop preload="none"></audio>
+<script src="script.js"></script>
+</body>
+</html>
