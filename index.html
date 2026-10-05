@@ -36,11 +36,6 @@
       <a class="navlink" href="#histoire">Notre histoire</a>
       <a class="navlink" href="#voyages">Voyages</a>
       <a class="navlink" href="#bebou">Bebou</a>
-      <a class="navlink" href="#carte">La carte</a>
-      <a class="navlink" href="#lettre">La lettre</a>
-      <button class="music-btn" id="musicBtn" data-on="0" type="button">
-        <span class="note">♪</span><span data-lbl>Musique</span>
-      </button>
     </div>
   </nav>
 
@@ -160,9 +155,8 @@
 
   <section id="bebou">
     <div class="reveal section-intro">
-      <div class="section-kicker">la vedette de ce site</div>
       <h2 class="section-title">Bebou <span class="heart" style="color:#E4685A">❤</span></h2>
-      <p class="section-desc">La plus jolie collection du monde entier (oui, j'assume).</p>
+      <p class="section-desc">Quelques photos de moi pour pas que tu m'oublies</p>
     </div>
     <div class="bebou-grid">
       <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/6682eb8e5d941e31f8e42999_IMG_1654.JPG" alt="Bebou" loading="lazy"></div>
@@ -182,68 +176,20 @@
       <div class="bcell"><img src="https://cdn.prod.website-files.com/65cbaabc15835ed86aee658e/65cd3b9cba841b6d09b7f0f1_Sans%20titre%2017_20230330171835.png" alt="Bebou" loading="lazy"></div>
     </div>
 
-    <div class="reveal bebou-slots">
-      <div class="bebou-slots-intro">…et de la place pour nos prochains souvenirs 👇</div>
-      <div class="bebou-slots-grid">
-        <div class="bebou-slot">Glisse une photo 💛</div>
-        <div class="bebou-slot">Glisse une photo 🧡</div>
-        <div class="bebou-slot">Glisse une photo ❤️</div>
-      </div>
-    </div>
   </section>
 
-  <section id="carte">
-    <div class="reveal section-intro">
-      <div class="section-kicker">nos petits coins du monde</div>
-      <h2 class="section-title">La carte de nous</h2>
-    </div>
-    <div class="reveal map-card">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-        <path class="route" d="M14,24 C6,44 8,58 22,66 C42,78 58,58 76,42" fill="none" stroke="#C96A45" stroke-width="2.4" stroke-dasharray="1.4 2" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".7"/>
-      </svg>
-      <div class="pin" style="left:14%;top:24%">
-        <div class="pin-ring"></div>
-        <div class="pin-dot">🧗</div>
-        <div class="pin-card"><div class="pin-title">Lausanne · Totem</div><div class="pin-sub">là où j'ai osé demander ton Insta</div></div>
-      </div>
-      <div class="pin" style="left:22%;top:66%">
-        <div class="pin-ring" style="animation-delay:.8s"></div>
-        <div class="pin-dot">🏄</div>
-        <div class="pin-card"><div class="pin-title">Cap Ferret</div><div class="pin-sub">le surf, l'océan, toi radieuse</div></div>
-      </div>
-      <div class="pin" style="left:76%;top:42%">
-        <div class="pin-ring" style="animation-delay:1.6s"></div>
-        <div class="pin-dot">♨️</div>
-        <div class="pin-card"><div class="pin-title">Les Termes</div><div class="pin-sub">notre bulle de détente</div></div>
+  <div id="letterModal" style="position:fixed;inset:0;z-index:9600;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(74,42,28,0);opacity:0;pointer-events:none;transition:opacity .5s ease">
+    <div id="letterCard" style="position:relative;max-width:560px;width:100%;opacity:0;transform:translateY(34px) scale(.96);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)">
+      <button id="closeLetter" aria-label="Fermer" style="position:absolute;top:-14px;right:-14px;z-index:2;width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;background:#E4685A;color:#fff;font-size:24px;line-height:1;box-shadow:0 8px 20px rgba(180,72,44,.4)">×</button>
+      <div style="background:#FFFDF8;border:1px solid rgba(74,49,37,.1);border-radius:22px;padding:40px 36px;box-shadow:0 30px 70px rgba(74,49,37,.35);text-align:left">
+        <div style="font-family:'Caveat',cursive;font-weight:700;font-size:30px;color:#C96A45;margin-bottom:14px">Ma Lou,</div>
+        <p style="font-size:16.5px;line-height:1.7;color:#5B4030;margin:0 0 14px">Si tu lis ces mots, c'est que tu as trouvé le petit secret que je t'avais glissé ici. Depuis ce jour d'octobre à Totem, où j'ai enfin eu le courage de te demander ton Instagram, ma vie a pris des couleurs de coucher de soleil.</p>
+        <p style="font-size:16.5px;line-height:1.7;color:#5B4030;margin:0 0 14px">Tu es ma surfeuse, ma grimpeuse, ma partenaire de bains chauds aux Termes et de trop longues soirées à rire pour rien. Merci d'exister, merci de me choisir chaque jour.</p>
+        <p style="font-size:16.5px;line-height:1.7;color:#5B4030;margin:0 0 20px">Je t'aime plus qu'hier, et bien moins que demain.</p>
+        <div style="font-family:'Caveat',cursive;font-weight:700;font-size:24px;color:#4A3125;text-align:right">pour toujours, ton Bebou 🤍</div>
       </div>
     </div>
-  </section>
-
-  <section id="lettre">
-    <div class="reveal section-intro">
-      <div class="section-kicker">un petit secret pour toi</div>
-      <h2 class="section-title">La lettre cachée</h2>
-      <p class="section-desc">Clique sur l'enveloppe. 💌</p>
-    </div>
-
-    <div class="letter-wrap">
-      <button class="env" id="envelope" type="button">
-        <div class="env-body"></div>
-        <div class="env-shadow"></div>
-        <div class="env-flap"></div>
-        <div class="env-seal">❤</div>
-        <div class="env-caption">pour Lou, ouvre-moi 💗</div>
-      </button>
-
-      <div class="letter" id="letter">
-        <div class="letter-salutation">Ma Lou,</div>
-        <p class="letter-text">Si tu lis ces mots, c'est que tu as trouvé le petit secret que je t'avais glissé ici. Depuis ce jour d'octobre à Totem, où j'ai enfin eu le courage de te demander ton Instagram, ma vie a pris des couleurs de coucher de soleil.</p>
-        <p class="letter-text">Tu es ma surfeuse, ma grimpeuse, ma partenaire de bains chauds aux Termes et de trop longues soirées à rire pour rien. Merci d'exister, merci de me choisir chaque jour.</p>
-        <p class="letter-text">Je t'aime plus qu'hier, et bien moins que demain.</p>
-        <div class="letter-sign">pour toujours, ton Bebou 🤍</div>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <footer>
     <div class="footer-emojis">❤️ 🧡 💛 🤍</div>
@@ -252,7 +198,6 @@
   </footer>
 </div>
 
-<audio id="bgm" src="assets/audio/ambient.mp3" loop preload="none"></audio>
 <script src="script.js"></script>
 </body>
 </html>

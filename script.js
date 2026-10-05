@@ -137,38 +137,65 @@
     }
   }
 
-  function setupLetter() {
-    const btn = document.getElementById("envelope");
-    const letter = document.getElementById("letter");
-    if (!btn || !letter) return;
-    btn.addEventListener("click", () => {
-      if (btn.classList.contains("open")) return;
-      btn.classList.add("open");
-      letter.classList.add("show");
-      burst(30);
-    });
-  }
+  function setupLetterModal() {
+    const modal = document.getElementById("letterModal");
+    const card = document.getElementById("letterCard");
+    const closeBtn = document.getElementById("closeLetter");
+    if (!modal || !card) return;
 
-  function setupMusic() {
-    const btn = document.getElementById("musicBtn");
-    const audio = document.getElementById("bgm");
-    if (!btn || !audio) return;
-    const lbl = btn.querySelector("[data-lbl]");
-    btn.addEventListener("click", () => {
-      const on = btn.getAttribute("data-on") === "1";
-      if (!on) {
-        audio.play().then(() => {
-          btn.setAttribute("data-on", "1");
-          btn.classList.add("on");
-          if (lbl) lbl.textContent = "En cours";
-        }).catch(() => {});
-      } else {
-        audio.pause();
-        btn.setAttribute("data-on", "0");
-        btn.classList.remove("on");
-        if (lbl) lbl.textContent = "Musique";
-      }
+    function openLetter() {
+      modal.style.opacity = "1";
+      modal.style.pointerEvents = "auto";
+      modal.style.background = "rgba(74,42,28,.55)";
+      card.style.opacity = "1";
+      card.style.transform = "none";
+      burst(30);
+    }
+
+    function closeLetter() {
+      modal.style.opacity = "0";
+      modal.style.pointerEvents = "none";
+      modal.style.background = "rgba(74,42,28,0)";
+      card.style.opacity = "0";
+      card.style.transform = "translateY(34px) scale(.96)";
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeLetter);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeLetter();
     });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLetter();
+    });
+
+    const voyagesSection = document.getElementById("voyages");
+    if (voyagesSection) {
+      const figures = voyagesSection.querySelectorAll(".pola");
+      if (figures.length > 0) {
+        const targetFig = figures[Math.min(12, figures.length - 1)];
+        targetFig.style.position = "relative";
+        const tab = document.createElement("button");
+        tab.setAttribute("aria-label", "?");
+        tab.type = "button";
+        tab.style.cssText = "position:absolute;top:-10px;right:28px;width:46px;height:32px;border:none;padding:0;margin:0;cursor:pointer;z-index:10;transform:rotate(-7deg);transition:top .3s ease,filter .3s;background:linear-gradient(160deg,#F0A57F,#E4685A);border-radius:6px 6px 2px 2px;box-shadow:0 5px 12px rgba(180,72,44,.32)";
+        const flap = document.createElement("span");
+        flap.style.cssText = "position:absolute;left:0;top:0;width:0;height:0;border-left:23px solid transparent;border-right:23px solid transparent;border-top:13px solid #F6BE9A";
+        tab.appendChild(flap);
+        tab.addEventListener("mouseenter", () => {
+          tab.style.top = "-15px";
+          tab.style.filter = "brightness(1.05)";
+        });
+        tab.addEventListener("mouseleave", () => {
+          tab.style.top = "-10px";
+          tab.style.filter = "none";
+        });
+        tab.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openLetter();
+        });
+        targetFig.appendChild(tab);
+      }
+    }
   }
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -177,7 +204,6 @@
     startCounter();
     setupParallax();
     setupNavScroll();
-    setupLetter();
-    setupMusic();
+    setupLetterModal();
   });
 })();
