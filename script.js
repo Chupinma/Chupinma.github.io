@@ -187,16 +187,18 @@
         const tab = document.createElement("button");
         tab.setAttribute("aria-label", "?");
         tab.type = "button";
-        tab.style.cssText = "position:absolute;bottom:8px;right:12px;width:46px;height:32px;border:none;padding:0;margin:0;cursor:pointer;z-index:1;transform:rotate(-7deg);transition:bottom .3s ease,filter .3s;background:linear-gradient(160deg,#F0A57F,#E4685A);border-radius:6px 6px 2px 2px;box-shadow:0 5px 12px rgba(180,72,44,.32)";
+        tab.style.cssText = "position:absolute;bottom:-6px;right:-6px;width:46px;height:32px;border:none;padding:0;margin:0;cursor:pointer;z-index:2;transform:rotate(-7deg);transition:bottom .3s ease,right .3s ease,filter .3s;background:linear-gradient(160deg,#F0A57F,#E4685A);border-radius:6px 6px 2px 2px;box-shadow:0 5px 12px rgba(180,72,44,.32)";
         const flap = document.createElement("span");
         flap.style.cssText = "position:absolute;left:0;top:0;width:0;height:0;border-left:23px solid transparent;border-right:23px solid transparent;border-top:13px solid #F6BE9A";
         tab.appendChild(flap);
         tab.addEventListener("mouseenter", () => {
-          tab.style.bottom = "12px";
+          tab.style.bottom = "-2px";
+          tab.style.right = "-2px";
           tab.style.filter = "brightness(1.05)";
         });
         tab.addEventListener("mouseleave", () => {
-          tab.style.bottom = "8px";
+          tab.style.bottom = "-6px";
+          tab.style.right = "-6px";
           tab.style.filter = "none";
         });
         tab.addEventListener("click", (e) => {
