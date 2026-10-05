@@ -166,7 +166,7 @@
     if (!grid) return;
 
     // nombre d'erreurs autorisées avant que toutes les cartes se retournent et se mélangent
-    const MAX_ERRORS = 150;
+    const MAX_ERRORS = 15;
     const sources = Array.prototype.slice.call(grid.querySelectorAll("img")).map((img) => img.getAttribute("src"));
     const total = sources.length;
 

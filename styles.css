@@ -95,8 +95,8 @@ img{display:block;max-width:100%}
 .pola-card{position:relative}
 .pola-inner{z-index:1}
 /* couleurs proches du fond de la section Voyages pour qu'elle se fonde dans le décor */
-.envelope{display:none;position:absolute;top:-13px;right:26px;width:46px;height:32px;border:none;padding:0;margin:0;cursor:pointer;z-index:0;transform:rotate(-7deg);background:linear-gradient(160deg,#eed0a7,#e2be91);border-radius:6px 6px 2px 2px;box-shadow:0 1px 3px rgba(74,49,37,.08)}
-.envelope::before{content:"";position:absolute;left:0;top:0;width:0;height:0;border-left:23px solid transparent;border-right:23px solid transparent;border-top:13px solid #FAF0E3}
+.envelope{display:none;position:absolute;top:-13px;right:26px;width:46px;height:32px;border:none;padding:0;margin:0;cursor:pointer;z-index:0;transform:rotate(-7deg);background:linear-gradient(160deg,#F5E4CE,#F0DCC2);border-radius:6px 6px 2px 2px;box-shadow:0 0 0 1px rgba(169,80,47,.14),0 2px 4px rgba(74,49,37,.1)}
+.envelope::before{content:"";position:absolute;left:0;top:0;width:0;height:0;border-left:23px solid transparent;border-right:23px solid transparent;border-top:14px solid #E3BC94}
 .envelope.unlocked{display:block}
 
 /* ---------- bebou : memory ---------- */
