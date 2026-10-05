@@ -142,9 +142,122 @@
     const cards = root.querySelectorAll(".pola-card");
     cards.forEach((card) => {
       card.addEventListener("click", () => {
+        // une seule carte retournée à la fois
+        cards.forEach((other) => {
+          if (other !== card) other.classList.remove("flipped");
+        });
         card.classList.toggle("flipped");
       });
     });
+  }
+
+  let envelope = null;
+  let envelopeUnlocked = false;
+
+  // l'enveloppe apparaît sans aucun effet : c'est à Lou de la trouver
+  function unlockEnvelope() {
+    envelopeUnlocked = true;
+    if (envelope) envelope.classList.add("unlocked");
+  }
+
+  function setupMemory() {
+    const grid = document.getElementById("memoryGrid");
+    const status = document.getElementById("memoryStatus");
+    if (!grid) return;
+
+    // nombre d'erreurs autorisées avant que toutes les cartes se retournent et se mélangent
+    const MAX_ERRORS = 150;
+    const sources = Array.prototype.slice.call(grid.querySelectorAll("img")).map((img) => img.getAttribute("src"));
+    const total = sources.length;
+
+    let first = null;
+    let busy = false;
+    let found = 0;
+    let errors = 0;
+
+    function deal() {
+      const deck = [];
+      sources.forEach((src, i) => { deck.push(i, i); });
+      for (let i = deck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const t = deck[i]; deck[i] = deck[j]; deck[j] = t;
+      }
+      grid.innerHTML = "";
+      deck.forEach((key) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = "mcard";
+        card.dataset.key = String(key);
+        card.setAttribute("aria-label", "Carte cachée");
+        card.innerHTML = '<span class="mcard-inner"><span class="mcard-back">❤</span>' +
+          '<span class="mcard-front"><img src="' + sources[key] + '" alt="Bebou"></span></span>';
+        grid.appendChild(card);
+      });
+      first = null;
+      found = 0;
+      errors = 0;
+      if (status) status.textContent = "";
+    }
+
+    // toutes les cartes se retournent face cachée, puis changent de place
+    function reshuffle() {
+      busy = true;
+      grid.querySelectorAll(".mcard").forEach((c) => c.classList.remove("up", "matched"));
+      setTimeout(() => {
+        deal();
+        busy = false;
+      }, 650);
+    }
+
+    function win() {
+      unlockEnvelope();
+      if (!status) return;
+      const again = document.createElement("button");
+      again.type = "button";
+      again.className = "memory-restart";
+      again.textContent = "↻";
+      again.setAttribute("aria-label", "Recommencer");
+      again.title = "Recommencer";
+      again.addEventListener("click", reshuffle);
+      status.appendChild(again);
+    }
+
+    grid.addEventListener("click", (e) => {
+      const card = e.target.closest(".mcard");
+      if (!card || busy || card.classList.contains("up")) return;
+      card.classList.add("up");
+
+      if (!first) {
+        first = card;
+        return;
+      }
+
+      if (first.dataset.key === card.dataset.key) {
+        first.classList.add("matched");
+        card.classList.add("matched");
+        first = null;
+        found++;
+        if (found === total) setTimeout(win, 700);
+        return;
+      }
+
+      // pas la même photo : on retourne les deux côté dos
+      const a = first;
+      first = null;
+      busy = true;
+      errors++;
+      setTimeout(() => {
+        if (errors >= MAX_ERRORS) {
+          reshuffle();
+          return;
+        }
+        a.classList.remove("up");
+        card.classList.remove("up");
+        busy = false;
+      }, 900);
+    });
+
+    deal();
   }
 
   function setupLetterModal() {
@@ -178,34 +291,42 @@
       if (e.key === "Escape") closeLetter();
     });
 
+    const packingBtn = document.getElementById("packingBtn");
+    const packingList = document.getElementById("packingList");
+    if (packingBtn && packingList) {
+      packingBtn.addEventListener("click", () => {
+        const open = packingList.hidden;
+        packingList.hidden = !open;
+        packingBtn.setAttribute("aria-expanded", String(open));
+        packingBtn.textContent = open ? "🧳 Ta valise ▴" : "🧳 Ta valise ▾";
+      });
+    }
+
+    const acceptBtn = document.getElementById("acceptInvite");
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", () => {
+        acceptBtn.textContent = "Hâte de te voir 🥰";
+        burst(50);
+      });
+    }
+
+    // enveloppe glissée derrière une polaroid des voyages, invisible tant que le memory n'est pas fini
     const voyagesSection = document.getElementById("voyages");
     if (voyagesSection) {
-      const figures = voyagesSection.querySelectorAll(".pola");
-      if (figures.length > 0) {
-        const targetFig = figures[Math.min(12, figures.length - 1)];
-        targetFig.style.position = "relative";
+      const cards = voyagesSection.querySelectorAll(".pola-card");
+      if (cards.length > 0) {
+        const target = cards[Math.min(12, cards.length - 1)];
         const tab = document.createElement("button");
-        tab.setAttribute("aria-label", "?");
         tab.type = "button";
-        tab.style.cssText = "position:absolute;bottom:-6px;right:-6px;width:46px;height:32px;border:none;padding:0;margin:0;cursor:pointer;z-index:2;transform:rotate(-7deg);transition:bottom .3s ease,right .3s ease,filter .3s;background:linear-gradient(160deg,#F0A57F,#E4685A);border-radius:6px 6px 2px 2px;box-shadow:0 5px 12px rgba(180,72,44,.32)";
-        const flap = document.createElement("span");
-        flap.style.cssText = "position:absolute;left:0;top:0;width:0;height:0;border-left:23px solid transparent;border-right:23px solid transparent;border-top:13px solid #F6BE9A";
-        tab.appendChild(flap);
-        tab.addEventListener("mouseenter", () => {
-          tab.style.bottom = "-2px";
-          tab.style.right = "-2px";
-          tab.style.filter = "brightness(1.05)";
-        });
-        tab.addEventListener("mouseleave", () => {
-          tab.style.bottom = "-6px";
-          tab.style.right = "-6px";
-          tab.style.filter = "none";
-        });
+        tab.className = "envelope";
+        tab.setAttribute("aria-label", "?");
         tab.addEventListener("click", (e) => {
           e.stopPropagation();
-          openLetter();
+          if (envelopeUnlocked) openLetter();
         });
-        targetFig.appendChild(tab);
+        target.appendChild(tab);
+        envelope = tab;
+        if (envelopeUnlocked) unlockEnvelope();
       }
     }
   }
@@ -218,5 +339,6 @@
     setupNavScroll();
     setupCardFlip();
     setupLetterModal();
+    setupMemory();
   });
 })();
